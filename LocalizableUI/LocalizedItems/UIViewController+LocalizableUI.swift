@@ -77,7 +77,7 @@ extension UIViewController: Localizable {
 
         if let localizedKey = localizedBackButtonKey {
             let localizedContent = LocalizationManager.localizedStringFor(localizedKey)
-            let backButton = UIBarButtonItem(localizedKey: localizedContent, style: .plain, target: nil, action: nil)
+            let backButton = UIBarButtonItem(localizedKey: localizedContent, style: .done, target: nil, action: nil)
             navigationItem.backBarButtonItem = backButton
         }
     }
@@ -91,7 +91,7 @@ extension UIViewController: Localizable {
             return
         }
         
-        if let indexOfCurrent = navController.viewControllers.index(of: self),
+        if let indexOfCurrent = navController.viewControllers.firstIndex(of: self),
             let followingVC = navController.viewControllers[safe: indexOfCurrent + 1] {
             
             // Check if the following view controller doesn't have a custom back button title

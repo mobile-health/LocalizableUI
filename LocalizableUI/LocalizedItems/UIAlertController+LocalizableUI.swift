@@ -12,7 +12,6 @@ private var AssociatedObjectPointerLocalizable: UInt8 = 0
 private var AssociatedObjectPointerMessage: UInt8 = 0
 
 extension UIAlertController {
-
     // Stores the property of the localized key
     public var localizedMessageKey: String? {
         get {
@@ -27,8 +26,8 @@ extension UIAlertController {
         }
     }
 
-    public convenience init(localizedTitle: String?, localizedMessage: String?, preferredStyle: UIAlertControllerStyle) {
-        self.init(title: localizedTitle, message: localizedMessage, preferredStyle:preferredStyle)
+    public convenience init(localizedTitle: String?, localizedMessage: String?, preferredStyle: UIAlertController.Style) {
+        self.init(title: localizedTitle, message: localizedMessage, preferredStyle: preferredStyle)
 
         localizedTitleKey = localizedTitle
         localizedMessageKey = localizedMessage
@@ -40,7 +39,6 @@ extension UIAlertController {
     }
 
     class Localized: Localizable {
-
         weak var alertController: UIAlertController?
 
         init(_ alertController: UIAlertController) {
@@ -52,7 +50,7 @@ extension UIAlertController {
                 if let localizedTitleKey = alertController.localizedTitleKey {
                     alertController.title = LocalizationManager.localizedStringFor(localizedTitleKey)
                 }
-                
+
                 if let localizedMessageKey = alertController.localizedMessageKey {
                     alertController.message = LocalizationManager.localizedStringFor(localizedMessageKey)
                 }

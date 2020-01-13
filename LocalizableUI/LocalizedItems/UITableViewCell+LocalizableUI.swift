@@ -11,7 +11,6 @@ import Foundation
 private var associatedDetailObjectPointer: UInt8 = 0
 
 extension UITableViewCell: Localizable {
-    
     // Stores the property of the detail label text
     @IBInspectable var detailLocalizedKey: String? {
         get {
@@ -25,7 +24,7 @@ extension UITableViewCell: Localizable {
         }
     }
     
-    public convenience init(style: UITableViewCellStyle, reuseIdentifier: String?, localizedKey: String?, detailLocalizedKey: String?) {
+    public convenience init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, localizedKey: String?, detailLocalizedKey: String?) {
         self.init(style: style, reuseIdentifier: reuseIdentifier)
         self.localizedKey = localizedKey
         self.detailLocalizedKey = detailLocalizedKey
@@ -41,5 +40,4 @@ extension UITableViewCell: Localizable {
             detailTextLabel?.text = LocalizationManager.localizedStringFor(detailLocalizedKey)
         }
     }
-    
 }

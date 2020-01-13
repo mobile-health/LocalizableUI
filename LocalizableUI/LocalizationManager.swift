@@ -43,7 +43,7 @@ open class LocalizationManager {
     
     /// Called when the current locale changed.
     @objc private func languageChanged() {
-        weakHash.allObjects.flatMap { $0 as? Localizable }.forEach { $0.updateLocalizedStrings() }
+        weakHash.allObjects.compactMap { $0 as? Localizable }.forEach { $0.updateLocalizedStrings() }
     }
     
     /// Method for adding new Localizable Elements to the LocalizationManager
